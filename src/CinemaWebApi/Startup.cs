@@ -34,6 +34,7 @@ namespace CinemaWebApi
                 options.UseSqlServer(connectionString);
             });
 
+            services.AddScoped<IGenresService, GenresService>();
             services.AddScoped<IMoviesService, MoviesService>();
         }
 
