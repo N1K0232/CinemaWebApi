@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CinemaWebApi.DataAccessLayer\CinemaWebApi.DataAccessLayer.csproj" />
     <ProjectReference Include="..\CinemaWebApi.Shared\CinemaWebApi.Shared.csproj" />
   </ItemGroup>
 

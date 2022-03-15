@@ -12,4 +12,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CinemaWebApi.BusinessLayer\CinemaWebApi.BusinessLayer.csproj" />
+  </ItemGroup>
+
 </Project>
