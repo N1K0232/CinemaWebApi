@@ -30,7 +30,7 @@ namespace CinemaWebApi.Controllers
         [HttpPost("RegisterMovie")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> RegisterMovie(RegisterMovieRequest request)
+        public async Task<IActionResult> RegisterMovie([FromBody] RegisterMovieRequest request)
         {
             var result = await moviesService.AddMovieAsync(request);
             return result ? Ok("movies successfully added") : BadRequest("errors during registration");
