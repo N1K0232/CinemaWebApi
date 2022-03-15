@@ -1,3 +1,4 @@
+using CinemaWebApi.BusinessLayer.Services;
 using CinemaWebApi.DataAccessLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,11 +28,13 @@ namespace CinemaWebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CinemaWebApi", Version = "v1" });
             });
 
-            services.AddDbContext<DataContext>(options =>
+            services.AddDbContext<IDataContext, DataContext>(options =>
             {
                 var connectionString = Configuration.GetConnectionString("SqlConnection");
                 options.UseSqlServer(connectionString);
             });
+
+            services.AddScoped<IMoviesService, MoviesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +42,6 @@ namespace CinemaWebApi
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CinemaWebApi v1"));
             }
