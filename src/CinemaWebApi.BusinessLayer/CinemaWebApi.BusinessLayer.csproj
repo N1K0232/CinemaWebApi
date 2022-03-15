@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CinemaWebApi.Shared\CinemaWebApi.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
